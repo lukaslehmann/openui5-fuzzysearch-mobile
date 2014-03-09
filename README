@@ -1,0 +1,41 @@
+### Prerequisites
+We have to download the following repo as a backend system, which is performing as an API
+and will supply our SAPUI5 mobile app with data.
+
+Backend: git@gitlab.swisscloud.io:appc-cf-demos/appc-cf-demo-nodejs-hana-openui5.git
+
+You have to had installed nodeJS from this website before you can run the backend on your local system, from here http://nodejs.org/.
+
+To run your backend just change you working directory in a terminal to the backend root directory type <b>node hdb_example.js</b>, to start up the backend.
+
+### Our SAPUI5 app
+Our SAPUI5 app just does a simple AJAX call to the backend described before and displays the data in a trivial table, which is binded to a model.
+
+This model will get data from the AJAX call every time the value from the inputfield changes. This will look like this:
+
+```javascript
+onSearch: function(oControlEvent){
+	var strSearchTerm = sap.ui.getCore().byId("id-searchfield").getValue();
+
+	var url = "http://localhost:3000/search?name="; 
+
+	//prepare ajax request url with parameter name
+	ajax_url = url + strSearchTerm;
+	//ajax request on /search?name=<search term>
+	$.ajax({
+		url: ajax_url,  
+		dataType: "json",
+		success: function(data, textStatus, jqXHR) { 
+			resp_data = data;
+			oModel.setData(resp_data);
+			console.log(resp_data);
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			console.log("error");
+		}
+	});	
+}
+``
+
+### SAPUI5
+This tutorial is just to show case that you can easily work with SAPUI5 mobile and nodeJS to retrieve data from a HANA DB really fast.

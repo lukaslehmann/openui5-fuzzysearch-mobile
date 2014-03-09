@@ -1,0 +1,8 @@
+---
+applications:
+- name: ui5
+  memory: 256M
+  instances: 1
+  host: ui5
+  path: .
+  buildpack: https://github.com/lukaslehmann/nginx-buildpack.git

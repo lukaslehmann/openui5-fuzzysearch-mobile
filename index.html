@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+       	<meta charset="UTF-8">
+       	
+       	<!--meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 width=device-width, height=device-height, target-densitydpi=device-dpi-->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		
+		<!-- Favicons -->
+		<link rel="shortcut icon" href="img/favicon.ico">
+        
+        		
+		<title>Hana DB</title>
+
+   		<script id="sap-ui-bootstrap"
+        	src="resources/sap-ui-core.js"
+            data-sap-ui-libs="sap.m"
+            data-sap-ui-theme="sap_bluecrystal"
+            data-sap-ui-language="en">
+        </script>     
+        
+        <!-- styles -->
+
+		
+		<!-- only load the mobile lib "sap.m" and the "sap_mvi" theme -->
+        <script type="text/javascript">  
+        	/* ------------------------------------------------------------------------------------ */
+	      	/*	SAPUI5 Configs
+	      	/* ------------------------------------------------------------------------------------ */      
+			// Tell UI5 where to find application content
+			sap.ui.localResources("util");  // paths starting with "util" will be resolved relative to the index.html location
+			sap.ui.localResources("view");
+			//jQuery.sap.registerModulePath('ApplicationBase', 'ApplicationBase'); // this file will be loaded directly from the same directory
+			jQuery.sap.registerModulePath('Application', 'Application');
+			
+			// Include libaries
+            jQuery.sap.require("sap.m.MessageToast");
+			
+			// Launch application
+			jQuery.sap.require("Application");
+			var oApp = new Application({
+				root : "content"
+			}); // instantiate your application and mark the HTML element with id "content" as location for the UI
+			
+			
+			/* ------------------------------------------------------------------------------------ */
+	      	/*	SAPUI5 Libarys
+	      	/* ------------------------------------------------------------------------------------ */
+			jQuery.sap.require("sap.m.MessageBox");
+	      	
+	      	/* ------------------------------------------------------------------------------------ */
+	      	/*	SAPUI5 Model
+	      	/* ------------------------------------------------------------------------------------ */
+	      	var oModel = new sap.ui.model.json.JSONModel();
+						
+		</script>
+       </head>
+       <body class="sapUiBody" id="content"></body>
+</html>
